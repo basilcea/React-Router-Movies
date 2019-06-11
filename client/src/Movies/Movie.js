@@ -12,7 +12,6 @@ export default class Movie extends Component {
   
   componentDidMount() {
     // change this line to grab the id passed on the URL
-    console.log(this.props)
     const id = this.props.match.params.id;
     this.fetchMovie(id);
   }
@@ -46,7 +45,7 @@ export default class Movie extends Component {
     return (
       <div className="save-wrapper">
         <MovieCard movie ={this.state.movie} />
-        <div className="save-button" onClick={()=>this.props.clicked(this.state.movie)}>Save</div>
+        <div className="save-button" onClick={this.saveMovie}>Save</div>
       </div>
     );
   }
