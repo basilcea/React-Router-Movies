@@ -16,12 +16,16 @@ export default class App extends Component {
 
   addToSavedList = movie => {
     const savedList = this.state.savedList;
+    if(savedList.find(mov => mov.id === movie.id)){
+    }else{
     savedList.push(movie);
     this.setState({ savedList: [ ...new Set (savedList) ]});
+    }
   };
 
   render() {
     return (
+    
       <Router>
         <SavedList list={this.state.savedList} />
         <Route exact path ='/' component={MovieList} />
